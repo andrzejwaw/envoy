@@ -1,5 +1,8 @@
 FROM envoyproxy/envoy-dev:latest
 
 RUN apt-get update && apt-get -q install -y \
-    curl
-CMD /usr/local/bin/envoy -c /etc/front-envoy.yaml --service-cluster front-proxy
+    curl git python vim
+
+RUN mkdir /opt/envoy
+ENV RESTART_EPOCH 0
+CMD python /opt/envoy/restarter/hot-restarter.py /opt/envoy/examples/front-proxy/start.sh
