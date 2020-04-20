@@ -1,7 +1,7 @@
 FROM envoyproxy/envoy-dev:latest
 
 RUN apt-get update && apt-get -q install -y \
-    curl git python vim
+    curl git python vim net-tools
 
 RUN mkdir /opt/envoy
 ENV RESTART_EPOCH 0
