@@ -59,3 +59,5 @@ sleep_seconds
 make_hot_restart
 check_envoys_uptime_and_wait_for_parent_to_die
 show_metrics
+sleep_seconds 92
+show_metrics
