@@ -1,7 +1,8 @@
 FROM envoyproxy/envoy-dev:latest
 
 RUN apt-get update && apt-get -q install -y \
-    curl git python vim net-tools
+    curl git python vim net-tools jq build-essential libssl-dev
+RUN git clone https://github.com/wg/wrk.git /opt/wrk && cd /opt/wrk && make && cp /opt/wrk/wrk /usr/local/bin
 
 RUN mkdir /opt/envoy
 ENV RESTART_EPOCH 0
